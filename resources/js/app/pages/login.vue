@@ -65,6 +65,14 @@
             }
         },
 
+        mounted()
+        {
+            if (this.app.user)
+            {
+                this.app.$router.push({name:'categories'});
+            }
+        },
+
         methods: {
             onSubmit()
             {

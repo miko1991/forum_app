@@ -1,10 +1,18 @@
 <template>
     <div>
         <navbar :app="this"></navbar>
+        <spinner class="bigSpinner"
+                 size="massive"
+                 line-fg-color="#4CAF50"
+                 v-if="$store.state.loading"
+                 message="Loading...">
+        </spinner>
+        <div v-else>
+            <transition name="fade">
+                <router-view :app="this" style="margin-top: 25px; margin-bottom: 50px"></router-view>
+            </transition>
+        </div>
 
-        <transition name="fade">
-            <router-view :app="this" style="margin-top: 25px; margin-bottom: 50px"></router-view>
-        </transition>
     </div>
 </template>
 
@@ -54,10 +62,10 @@
             {
                 let $this = this;
 
-                this.loading = true;
+                this.$store.commit('setLoading', true);
 
                 this.request.get('auth/init').then(function (response) {
-                    $this.loading = false;
+                    $this.$store.commit('setLoading', false);
                     $this.user = response.data.user;
                     $this.threadCount = response.data.threadCount;
 
@@ -77,5 +85,11 @@
     }
     .fade-enter /* .fade-leave-active below version 2.1.8 */ {
         opacity: 0;
+    }
+
+    .bigSpinner
+    {
+        margin: 25% auto auto;
+
     }
 </style>

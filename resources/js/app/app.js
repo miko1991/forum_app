@@ -53,7 +53,14 @@ import 'nprogress/nprogress.css';
 Spinner
  */
 
-Vue.component('spinner', require('./components/spinner'));
+/**
+ * Spinner
+ *
+ *
+ */
+
+
+Vue.component('spinner', require('vue-simple-spinner'));
 
 
 /*
@@ -88,6 +95,6 @@ const app = require('./app.vue');
 
 new Vue({
     router: router,
-    store,
+    store: store,
     render: h => h(app)
 }).$mount('#app');
