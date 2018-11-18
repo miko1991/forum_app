@@ -79,7 +79,7 @@
     }
 </script>
 
-<style scoped>
+<style>
     .fade-enter-active {
         transition: opacity .5s;
     }
