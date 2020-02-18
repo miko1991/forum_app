@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  # App php-fpm service
+  app:
+    build: ./
+    container_name: livechats_app
+    restart: unless-stopped
+    expose:
+      - 80
+    environment:
+      VIRTUAL_HOST: forum.mikolaj.dk
+      VIRTUAL_PORT: 8000
+      LETSENCRYPT_HOST: forum.mikolaj.dk
+      LETSENCRYPT_EMAIL: mikoo1991@yahoo.com
+volumes:
+  dbdata:
+    driver: local
+networks:
+  default:
+    external:
+      name: nginx-proxy
