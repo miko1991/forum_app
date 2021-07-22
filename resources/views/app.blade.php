@@ -7,7 +7,7 @@
 
         <title>Forum App</title>
 
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css" />
+        <link rel="stylesheet" href="/css/app.css" type="text/css" />
 
     </head>
     <body>
