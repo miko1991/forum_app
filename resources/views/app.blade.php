@@ -18,7 +18,7 @@
     <script>
         var BASE_URL = '{{ URL::to('/') }}';
     </script>
-    <script src="{{ asset('js/app.js') }}">
+    <script src="/js/app.js">
     </script>
     </body>
 </html>
